@@ -36,7 +36,7 @@
 \clearscrheadfoot
 \ohead{\pagemark}
 \ihead{\headmark}
-\cfoot[Version vom \today]{Version vom \today}
+%\cfoot[Version vom \today]{Version vom \today}
 \pagestyle{scrheadings}
 
 \usepackage[]{floatrow}
@@ -53,6 +53,11 @@
 \usepackage[hyperref,table,rgb,dvipsnames]{xcolor}
 
 \usepackage[mark]{gitinfo2}
+\renewcommand{\gitMark}{%
+    Branch: \gitBranch\,@\,\gitAbbrevHash{}\textbullet{}Release:\gitReln{} (\gitAuthorDate)\\
+    Head tags: \gitTags\\
+    Autor: \gitCommitterName
+}
 
 \usepackage{graphicx}
 \usepackage{subfig}
