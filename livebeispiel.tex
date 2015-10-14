@@ -85,7 +85,7 @@
 
 \usepackage{biblatex}
 \addbibresource{LaTeX-Literatur.bib}
-
+\usepackage{calc}
 \usepackage[german]{varioref}
 \usepackage[german]{cleveref}
 
@@ -96,7 +96,7 @@
 \setkomafont{captionlabel}{\normalfont\small\upshape\bfseries}
 
 
-\deffootnote[1.5em]{1.5em}{1.5em}{\textsuperscript{\footnotemark}\ }
+\deffootnote[1.5em]{1.5em}{1.5em}{\makebox[1.5em][r]{\textsuperscript{\footnotemark}\ }}
 
 \newcommand{\autor}[1]{\textit{#1}} %-> \autor{Name}
 
@@ -333,6 +333,19 @@ Wie bereits \autor{Herbert Voß} in \cite[12--16]{Voss.2012}, aber auch in \cite
 \cite{Mosgen.1998}
 
 \cite{Mittelbach.2004}
+
+\fbox{\parbox[t]{0.4\textwidth}{\blindtext[2]}}\hspace*{\fill}
+\fbox{\parbox[t]{0.4\textwidth}{\blindtext}}\\
+
+A B\hfill B\\
+\newlength{\myheight}
+\settoheight{\myheight}{\includegraphics[width=2cm]{Abbildungen/Tulips}}
+\includegraphics[height=\myheight]{Abbildungen/Koeln_RdFlug_1}
+\includegraphics[width=2cm]{Abbildungen/Tulips}
+
+\addtolength{\myheight}{3cm}
+\includegraphics[height=\myheight]{Abbildungen/Koeln_RdFlug_1}
+
 \nocite{*}
 \printbibliography[nottype=online]
 \printbibliography[type=online]
