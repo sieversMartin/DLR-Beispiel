@@ -6,6 +6,7 @@
     parskip=half,
     listof=totoc,
     bibliography=totoc,
+    cleardoublepage=empty,
     pagesize
 ]{scrbook}
 %\usepackage{scrhack}
@@ -52,12 +53,12 @@
 
 \usepackage[hyperref,table,rgb,dvipsnames]{xcolor}
 
-\usepackage[mark]{gitinfo2}
-\renewcommand{\gitMark}{%
-    Branch: \gitBranch\,@\,\gitAbbrevHash{}\textbullet{}Release:\gitReln{} (\gitAuthorDate)\\
-    Head tags: \gitTags\\
-    Autor: \gitCommitterName
-}
+%\usepackage[mark]{gitinfo2}
+%\renewcommand{\gitMark}{%
+%    Branch: \gitBranch\,@\,\gitAbbrevHash{}\textbullet{}Release:\gitReln{} (\gitAuthorDate)\\
+%    Head tags: \gitTags\\
+%    Autor: \gitCommitterName
+%}
 
 \usepackage{graphicx}
 \usepackage{subfig}
@@ -83,7 +84,8 @@
 \usepackage{chngcntr}
 \counterwithout{equation}{chapter}
 
-\usepackage{biblatex}
+\usepackage{csquotes}
+\usepackage[defernumbers,backend=biber]{biblatex}
 \addbibresource{LaTeX-Literatur.bib}
 \usepackage{calc}
 \usepackage[german]{varioref}
@@ -277,7 +279,7 @@ Wie bereits der Autor \autor{Herbert Voß} schreibt: \blindtext
         \hline
     \end{tabularx}
     \caption{Eine erste Tabelle}
-    \label{tab:ersteTabelle}
+    \label{tab:ersteTabelle-tabularx}
 \end{table}
 
 \chapter{Mathematik}
