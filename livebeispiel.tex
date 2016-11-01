@@ -3,7 +3,7 @@
     fontsize=11pt,%Schriftgröße
     paper=a4,%Papiergröße
     headings=small,
-    parskip=half,
+    parskip=half-,
     listof=totoc,
     bibliography=totoc,
     cleardoublepage=empty,
@@ -55,7 +55,8 @@
 
 \usepackage[mark]{gitinfo2}
 \renewcommand{\gitMark}{%
-    Branch: \gitBranch\,@\,\gitAbbrevHash{}\textbullet{}Release:\gitReln{} (\gitAuthorDate)\\
+    Branch: \gitBranch\,@\,\gitAbbrevHash{}\textbullet{}Release: \gitFirstTagDescribe{}
+     (\gitAuthorDate)\\
     Head tags: \gitTags\\
     Autor: \gitCommitterName
 }
@@ -337,7 +338,7 @@ Wie bereits \autor{Herbert Voß} in \cite[12--16]{Voss.2012}, aber auch in \cite
 \cite{Mittelbach.2004}
 
 \fbox{\parbox[t]{0.4\textwidth}{\blindtext[2]}}\hspace*{\fill}
-\fbox{\parbox[t]{0.4\textwidth}{\blindtext}}\\
+\fbox{\parbox[t]{0.4\textwidth}{\blindtext}}\par
 
 \chapter{Neues Kapitel}
 \blindtext
