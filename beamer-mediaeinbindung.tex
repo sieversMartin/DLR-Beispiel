@@ -1,0 +1,12 @@
+\RequirePackage{snapshot}
+\documentclass{beamer}
+
+\usepackage{multimedia}
+
+\begin{document}
+   \movie[label=mytest,width=3cm,height=2cm,poster,autostart,showcontrols=true]{}{An_Earthshaking_Announcement.mp4}
+   %\hyperlinkmovie[start=5s,duration=7s]{mytest}{\beamerbutton{Show the middle stage}}
+   
+   \hyperlinkmovie[once]{mytest}{Spiel das} ab!
+   
+\end{document}
