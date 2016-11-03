@@ -1,0 +1,30 @@
+\documentclass{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{libertine}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\begin{document}
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+    \begin{axis}
+    \addplot table [x={Schüler-Nr.}, y={Note Mädchen}, col sep=comma,only marks] {mydata.csv};
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Noten der Mädchen}
+\end{figure}
+
+\begin{figure}
+        \centering
+        \begin{tikzpicture}
+        \begin{axis}
+        \addplot table [x={Schüler-Nr.}, y={Note Jungen}, col sep=comma] {mydata.csv};
+        \end{axis}
+        \end{tikzpicture}
+        \caption{Noten der Jungen}
+\end{figure}
+
+\end{document}
