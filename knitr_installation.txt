@@ -1,0 +1,7 @@
+﻿1. R installieren
+2. knitr Bibliothek installieren
+3. In TeXstudio unter "Konfigurieren->Erzeugen" bei den "Benutzerbefehlen" eintragen:
+"C:\Program Files\R\R-2.15.3\bin\RScript.exe" -e "knitr::knit2pdf('%.Rnw')"
+
+Die Versionsnummer dabei der eigenen Installation anpassen.
+4. Die .Rnw-Datei öffnen und den benutzerdefinierten Befehl ausführen.
