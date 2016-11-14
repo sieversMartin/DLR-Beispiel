@@ -1,0 +1,104 @@
+%%% Aufruf mit: "PATH/TO/RScript.exe" -e "library(knitr); knit2pdf('%.Rnw')"
+
+\documentclass{book}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{libertine}
+\usepackage[varqu]{inconsolata}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+    
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{X} \hlkwb{<-} \hlkwd{read.csv}\hlstd{(}\hlstr{"mydata.csv"}\hlstd{,}\hlkwc{header}\hlstd{=T)}
+\hlkwd{summary}\hlstd{(X)}
+\end{alltt}
+\begin{verbatim}
+##   Schüler.Nr.    Note.Mädchen  Note.Jungen 
+##  Min.   : 1.0   Min.   :1.2   Min.   :1.0  
+##  1st Qu.: 3.2   1st Qu.:2.6   1st Qu.:2.0  
+##  Median : 5.5   Median :2.8   Median :2.6  
+##  Mean   : 5.5   Mean   :2.8   Mean   :3.0  
+##  3rd Qu.: 7.8   3rd Qu.:3.2   3rd Qu.:3.4  
+##  Max.   :10.0   Max.   :3.5   Max.   :6.0
+\end{verbatim}
+\begin{alltt}
+\hlstd{meanM} \hlkwb{<-} \hlkwd{mean}\hlstd{(X}\hlopt{$}\hlstd{Note.Jungen)}
+\hlstd{meanF} \hlkwb{<-} \hlkwd{mean}\hlstd{(X}\hlopt{$}\hlstd{Note.Mädchen)}
+\hlstd{stdabw} \hlkwb{<-} \hlkwa{function}\hlstd{(}\hlkwc{x}\hlstd{) \{n}\hlkwb{=}\hlkwd{length}\hlstd{(x) ;} \hlkwd{sqrt}\hlstd{(}\hlkwd{var}\hlstd{(x)} \hlopt{*} \hlstd{(n}\hlopt{-}\hlnum{1}\hlstd{)} \hlopt{/} \hlstd{n)\}}
+\hlstd{stdabwM} \hlkwb{<-} \hlkwd{stdabw}\hlstd{(X}\hlopt{$}\hlstd{Note.Jungen)}
+\hlstd{stdabwF} \hlkwb{<-} \hlkwd{stdabw}\hlstd{(X}\hlopt{$}\hlstd{Note.Mädchen)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+    
+Der Mittelwert der Noten der Jungen beträgt 3, der der Mädchen 2.8. Die 
+Standardabweichung beträgt dabei 1.69 bzw. 0.62	
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{plot}\hlstd{(X}\hlopt{$}\hlstd{Note.Jungen)}
+\end{alltt}
+\end{kframe}
+
+{\centering \includegraphics[width=\maxwidth]{figure/minimal-myplot-1} 
+
+}
+
+
+
+\end{knitrout}
+\end{document}

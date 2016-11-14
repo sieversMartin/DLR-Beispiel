@@ -1,3 +1,7 @@
+% !TeX spellcheck = de_DE
+% !TeX encoding = UTF-8
+% !TeX program = pdflatex
+% !TeX bibliography = biber
 \listfiles
 \documentclass[
     fontsize=11pt,%Schriftgröße
@@ -86,10 +90,21 @@
 \counterwithout{equation}{chapter}
 
 \usepackage{csquotes}
-\usepackage[defernumbers,backend=biber]{biblatex}
+\usepackage[backend=biber,style=authoryear,isbn=false,maxcitenames=1]{biblatex}
 \addbibresource{LaTeX-Literatur.bib}
 \usepackage{calc}
 \usepackage[german]{varioref}
+\usepackage{imakeidx}
+\makeindex[title={Sachregister}]
+\makeindex[name=personen,title={Personenregister},options={-g -s meinstil.ist}]
+%\usepackage[pdfusetitle]{hyperref}
+\usepackage[pdfpagelabels=false]{hyperref}
+\hypersetup{%
+    colorlinks,urlcolor=Maroon,citecolor=blue,%
+    bookmarksopen,bookmarksopenlevel=2,bookmarksnumbered,%
+    pdfdisplaydoctitle,pdfpagelayout=TwoPageLeft,pdfstartview=FitH,%
+    pdftitle={Ein erstes LaTeX-Dokument},pdfsubject={Vorlesungsdatei},pdfauthor={Martin Sievers und N.N.},pdfkeywords={123;453;324},
+}
 \usepackage[german]{cleveref}
 
 \setkomafont{disposition}{\normalfont\bfseries}
@@ -111,7 +126,7 @@
 \begin{document}
 \frontmatter
 \title{Ein erstes Dokument mit \TeX{}}
-\author{Martin Sievers\and N.N. \and X.Y.}
+\author{Martin Sievers, N.N. und X.Y.}
 \date{}
 \maketitle
 
@@ -333,9 +348,9 @@ a+b&\leq c\\
 \section{Literatur}
 Wie bereits \autor{Herbert Voß} in \cite[12--16]{Voss.2012}, aber auch in \cite[34]{Voss.2007} schreibt,
 
-\cite{Mosgen.1998}
+\cite[38--50]{Mosgen.1998}
 
-\cite{Mittelbach.2004}
+\cite[Vgl. dazu auch][17\psq]{Mittelbach.2004}
 
 \fbox{\parbox[t]{0.4\textwidth}{\blindtext[2]}}\hspace*{\fill}
 \fbox{\parbox[t]{0.4\textwidth}{\blindtext}}\par
@@ -343,7 +358,7 @@ Wie bereits \autor{Herbert Voß} in \cite[12--16]{Voss.2012}, aber auch in \cite
 \chapter{Neues Kapitel}
 \blindtext
 
-A B\hfill B\\
+A B\hfill B\hfill B\\
 \newlength{\myheight}
 \settoheight{\myheight}{\includegraphics[width=2cm]{Abbildungen/Tulips}}
 \includegraphics[height=\myheight]{Abbildungen/Koeln_RdFlug_1}
@@ -352,7 +367,20 @@ A B\hfill B\\
 \addtolength{\myheight}{3cm}
 \includegraphics[height=\myheight]{Abbildungen/Koeln_RdFlug_1}
 
+
+\chapter{Hyperref}
+Wenn man das ganze \href{www.google.de}{googlet}, dann \dots
+
+Siehe auch bei \cite{Mittelbach.2004}
+
+
+\chapter{Register}
+Beim Textsatz\index{Textsatz} mit \LaTeX{} spielt Markus Kohm\index[personen]{Kohm, Markus} eine große Rolle.
+
 \nocite{*}
 \printbibliography[nottype=online]
 \printbibliography[type=online]
+
+\printindex
+\printindex[personen]
 \end{document}
